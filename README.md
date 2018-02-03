@@ -1,4 +1,8 @@
 # conversation-board-server
+
+[![master](https://travis-ci.org/whiteboards/conversation-board-server.svg?branch=master)](https://travis-ci.org/whiteboards/conversation-board-server)
+[![develop](https://travis-ci.org/whiteboards/conversation-board-server.svg?branch=develop)](https://travis-ci.org/whiteboards/conversation-board-server)
+
 Back end server for Conversation Board
 
 ## Getting Started
