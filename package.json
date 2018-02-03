@@ -27,7 +27,7 @@
     "build": "tsc",
     "lint": "tslint src/**/*.ts",
     "test": "jest --watch",
-    "travis": "npm lint && jest"
+    "travis": "npm run lint && jest"
   },
   "jest": {
     "moduleFileExtensions": [
