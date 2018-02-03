@@ -26,7 +26,8 @@
     "start": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"tsc -w\" \"nodemon --inspect dist/server.js\"",
     "build": "tsc",
     "lint": "tslint src/**/*.ts",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "travis": "npm run lint && jest"
   },
   "jest": {
     "moduleFileExtensions": [
