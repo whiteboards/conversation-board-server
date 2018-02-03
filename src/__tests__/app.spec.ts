@@ -1,5 +1,5 @@
 import * as request from 'supertest';
-import * as app from '../src/app';
+import * as app from '../app';
 
 import { expect } from 'chai';
 
