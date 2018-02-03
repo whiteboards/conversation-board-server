@@ -1,0 +1,45 @@
+{
+  "name": "conversation-board-server",
+  "version": "1.0.0",
+  "description": "Back end server for Conversation Board",
+  "main": "index.ts",
+  "repository": "git@github.com:whiteboards/conversation-board-server.git",
+  "author": {
+    "name": "Keith Wade",
+    "email": "keawade@protonmail.com",
+    "url": "https://keawade.io"
+  },
+  "contributors": [
+    {
+      "name": "Colby Rodeheaver"
+    },
+    {
+      "name": "Nathan Bland"
+    }
+  ],
+  "license": "UNLICENSED",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/whiteboards/conversation-board-server/issues'"
+  },
+  "scripts": {
+    "start": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"tsc -w\" \"nodemon --inspect dist/server.js\"",
+    "build": "tsc",
+    "lint": "tslint src/**/*.ts"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.11.1",
+    "@types/morgan": "^1.7.35",
+    "concurrently": "^3.5.1",
+    "nodemon": "^1.14.12",
+    "ts-jest": "^22.0.2",
+    "ts-node": "^4.1.0",
+    "tslint": "^5.9.1",
+    "tslint-microsoft-contrib": "^5.0.2",
+    "typescript": "^2.7.1"
+  }
+}
