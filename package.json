@@ -9,8 +9,7 @@
     "email": "keawade@protonmail.com",
     "url": "https://keawade.io"
   },
-  "contributors": [
-    {
+  "contributors": [{
       "name": "Colby Rodeheaver"
     },
     {
@@ -30,14 +29,16 @@
     "travis": "npm run lint && jest"
   },
   "jest": {
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(js|ts)$",
     "moduleFileExtensions": [
       "ts",
-      "js"
-    ],
-    "transform": {
-      "\\.ts$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
-    },
-    "testRegex": "/test/.*\\.(ts|js)$"
+      "js",
+      "json",
+      "node"
+    ]
   },
   "dependencies": {
     "express": "^4.16.2",
