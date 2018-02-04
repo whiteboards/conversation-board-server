@@ -1,6 +1,9 @@
 import * as cors from 'cors';
 import * as express from 'express';
 import * as logger from 'morgan';
+import * as bodyParser from 'body-parser';
+
+import * as apiController from './controllers/api';
 
 // Create Express server
 const app = express();
@@ -11,11 +14,12 @@ const app = express();
 app.set('port', process.env.PORT || 3000);
 app.use(logger('dev'));
 app.use(cors()); // TODO: Remove this. Or at least restrict it as much as possible.
+app.use(bodyParser.json());
 
 // API Routes
 // TODO: Split these into separate files
-app.get('/', (req, res) => {
-  res.send('Conversation Board Server is working!');
-});
+app.get('/api/user/:id', apiController.getUser);
+app.get('/api/board/:id', apiController.getBoard);
+app.get('/api/board/:id/posts', apiController.getPosts);
 
 module.exports = app;
