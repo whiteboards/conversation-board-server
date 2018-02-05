@@ -2,13 +2,31 @@ import * as cors from 'cors';
 import * as express from 'express';
 import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
-
 import * as apiController from './controllers/api';
+let pg = require('pg');
+pg.defaults.ssl = true;
+const Sequelize = require('sequelize')
 
 // Create Express server
 const app = express();
 
 // TODO: Connect to database
+const sequelize = new Sequelize(process.env.DATABASE_URL || 'localhost', {
+  pool: {
+    max: 20,
+    min: 0,
+    acquire: 30000,
+    idle: 10000
+  }
+});
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
 
 // Express configuration
 app.set('port', process.env.PORT || 3000);
