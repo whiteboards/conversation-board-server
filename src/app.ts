@@ -3,9 +3,9 @@ import * as express from 'express';
 import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
 import * as apiController from './controllers/api';
-let pg = require('pg');
+const pg = require('pg');
 pg.defaults.ssl = true;
-const Sequelize = require('sequelize')
+const Sequelize = require('sequelize');
 
 // Create Express server
 const app = express();
@@ -16,15 +16,15 @@ const sequelize = new Sequelize(process.env.DATABASE_URL || 'localhost', {
     max: 20,
     min: 0,
     acquire: 30000,
-    idle: 10000
-  }
+    idle: 10000,
+  },
 });
 sequelize
   .authenticate()
   .then(() => {
     console.log('Connection has been established successfully.');
   })
-  .catch(err => {
+  .catch((err) => {
     console.error('Unable to connect to the database:', err);
   });
 
