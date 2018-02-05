@@ -1,11 +1,14 @@
-import * as cors from 'cors';
 import * as express from 'express';
 import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
+import * as cors from 'cors';
+import * as pg from 'pg';
+import * as Sequelize from 'sequelize';
+
+// Internal imports
 import * as apiController from './controllers/api';
-const pg = require('pg');
+
 pg.defaults.ssl = true;
-const Sequelize = require('sequelize');
 
 // Create Express server
 const app = express();
@@ -19,6 +22,7 @@ const sequelize = new Sequelize(process.env.DATABASE_URL || 'localhost', {
     idle: 10000,
   },
 });
+
 sequelize
   .authenticate()
   .then(() => {
