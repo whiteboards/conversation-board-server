@@ -32,14 +32,14 @@ const sequelize = new Sequelize(process.env.DATABASE_URL || config.DATABASE_URL,
   },
 });
 
-sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.');
-  })
-  .catch((err) => {
-    console.error('Unable to connect to the database:', err);
-  });
+// sequelize
+//   .authenticate()
+//   .then(() => {
+//     console.log('Connection has been established successfully.');
+//   })
+//   .catch((err) => {
+//     console.error('Unable to connect to the database:', err);
+//   });
 
 // Express configuration
 app.set('port', process.env.PORT || 3000);
