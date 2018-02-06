@@ -5,7 +5,15 @@ import * as cors from 'cors';
 import * as pg from 'pg';
 import * as Sequelize from 'sequelize';
 
-import * as config from '../config';
+import * as fs from 'fs';
+
+// Get config from disk
+let config = {
+  DATABASE_URL: undefined,
+};
+if (fs.existsSync('../config.js')) {
+  config = require('../config');
+}
 
 // Internal imports
 import * as apiController from './controllers/api';
