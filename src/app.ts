@@ -5,6 +5,8 @@ import * as cors from 'cors';
 import * as pg from 'pg';
 import * as Sequelize from 'sequelize';
 
+import * as config from '../config';
+
 // Internal imports
 import * as apiController from './controllers/api';
 
@@ -13,8 +15,7 @@ pg.defaults.ssl = true;
 // Create Express server
 const app = express();
 
-// TODO: Connect to database
-const sequelize = new Sequelize(process.env.DATABASE_URL || 'localhost', {
+const sequelize = new Sequelize(process.env.DATABASE_URL || config.DATABASE_URL, {
   pool: {
     max: 20,
     min: 0,
