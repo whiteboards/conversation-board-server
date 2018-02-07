@@ -51,7 +51,7 @@ app.set('port', process.env.PORT || 3000);
 app.use(logger('dev'));
 app.use(cors()); // TODO: Remove this. Or at least restrict it as much as possible.
 app.use(bodyParser.json());
-app.use(helmet);
+app.use(helmet());
 
 // API Routes
 // TODO: Split these into separate files
