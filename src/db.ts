@@ -1,9 +1,9 @@
 import * as Sequelize from 'sequelize';
 import * as pg from 'pg';
 import * as fs from 'fs';
-import * as board from './models/board';
-import * as post from './models/post';
-import * as user from './models/user';
+import * as Board from './models/board';
+import * as Post from './models/post';
+import * as User from './models/user';
 
 pg.defaults.ssl = true;
 let config = {
@@ -24,15 +24,14 @@ const sequelize = new Sequelize(process.env.DATABASE_URL || config.DATABASE_URL,
 });
 // Get config from disk
 const db = {
-  db: {
     Sequelize,
     sequelize,
-    board,
-    post,
-    user,
-  }
+    Board,
+    Post,
+    User,
 };
 
-db.db.sequelize.sync(/*{ force: true }*/)
+db.sequelize.sync(/*{ force: true }*/)
 
-export = db;
+export {Sequelize, sequelize, Board, Post, User};
+// export {}

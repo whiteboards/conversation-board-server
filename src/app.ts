@@ -4,7 +4,7 @@ import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
 import * as helmet from 'helmet';
 // Internal imports
-import { db } from './db';
+import * as  db from './db';
 import * as apiController from './controllers/api';
 
 // Create Express server

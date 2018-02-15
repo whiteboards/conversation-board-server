@@ -1,4 +1,4 @@
-export const board = (sequelize, Sequelize) => {
+const user = (sequelize, Sequelize) => {
   return sequelize.define('user', {
     id: {
       type: Sequelize.UUID,
@@ -13,3 +13,4 @@ export const board = (sequelize, Sequelize) => {
     updatedAt: 'date_updated',
   });
 }
+export = user;
