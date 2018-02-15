@@ -12,5 +12,6 @@ const user = (sequelize, Sequelize) => {
     createdAt: 'date_created',
     updatedAt: 'date_updated',
   });
-}
-export = user;
+};
+
+export { user };

@@ -12,4 +12,4 @@ const board = (sequelize, Sequelize) => {
   });
 };
 
-export = board;
+export { board };

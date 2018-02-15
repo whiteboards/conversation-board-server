@@ -10,7 +10,7 @@ import * as apiController from './controllers/api';
 // Create Express server
 const app = express();
 
-db.sequelize
+db.database
   .authenticate()
   .then(() => {
     console.log('Connection has been established successfully.');

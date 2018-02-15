@@ -13,4 +13,5 @@ const post = (sequelize, Sequelize) => {
     updatedAt: 'date_updated',
   });
 };
-export = post;
+
+export { post };

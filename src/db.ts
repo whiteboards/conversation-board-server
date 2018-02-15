@@ -14,7 +14,7 @@ if (fs.existsSync('../config.js')) {
   config = require('../config');
 }
 
-const sequelize = new Sequelize(process.env.DATABASE_URL || config.DATABASE_URL, {
+const database = new Sequelize(process.env.DATABASE_URL || config.DATABASE_URL, {
   pool: {
     max: 20,
     min: 0,
@@ -22,16 +22,9 @@ const sequelize = new Sequelize(process.env.DATABASE_URL || config.DATABASE_URL,
     idle: 10000,
   },
 });
+
 // Get config from disk
-const db = {
-    Sequelize,
-    sequelize,
-    Board,
-    Post,
-    User,
-};
 
-db.sequelize.sync(/*{ force: true }*/)
+database.sync(/*{ force: true }*/);
 
-export {Sequelize, sequelize, Board, Post, User};
-// export {}
+export { Sequelize, database, Board, Post, User };
