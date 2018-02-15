@@ -1,13 +1,15 @@
 export const board = (sequelize, Sequelize) => {
-  return sequelize.define('board', {
+  return sequelize.define('user', {
     id: {
       type: Sequelize.UUID,
       defaultValue: Sequelize.UUIDV4,
       primaryKey: true,
     },
-    name: Sequelize.STRING(255),
+    username: Sequelize.STRING(255),
+    displayname: Sequelize.STRING(255),
+    email: Sequelize.STRING(255),
     timestamps: true,
     createdAt: 'date_created',
     updatedAt: 'date_updated',
   });
-};
+}

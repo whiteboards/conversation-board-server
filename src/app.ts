@@ -2,13 +2,13 @@ import * as express from 'express';
 import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
-import * as db from './db';
+import * as helmet from 'helmet';
 // Internal imports
+import { db } from './db';
 import * as apiController from './controllers/api';
 
 // Create Express server
 const app = express();
-
 
 db.sequelize
   .authenticate()
@@ -25,6 +25,7 @@ app.locals.db = db;
 app.use(logger('dev'));
 app.use(cors()); // TODO: Remove this. Or at least restrict it as much as possible.
 app.use(bodyParser.json());
+app.use(helmet());
 
 // API Routes
 // TODO: Split these into separate files

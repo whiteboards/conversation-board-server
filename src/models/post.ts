@@ -1,11 +1,13 @@
 export const board = (sequelize, Sequelize) => {
-  return sequelize.define('board', {
+  return sequelize.define('post', {
     id: {
       type: Sequelize.UUID,
       defaultValue: Sequelize.UUIDV4,
       primaryKey: true,
     },
-    name: Sequelize.STRING(255),
+    title: Sequelize.STRING(255),
+    content: Sequelize.STRING(255),
+    chatId: Sequelize.STRING(255),
     timestamps: true,
     createdAt: 'date_created',
     updatedAt: 'date_updated',
