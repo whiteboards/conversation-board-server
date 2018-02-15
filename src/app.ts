@@ -33,4 +33,4 @@ app.get('/api/user/:id', apiController.getUser);
 app.get('/api/board/:id', apiController.getBoard);
 app.get('/api/board/:id/posts', apiController.getPosts);
 
-module.exports = app;
+export { app };
