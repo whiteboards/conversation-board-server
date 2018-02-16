@@ -1,4 +1,4 @@
-const post = (sequelize, Sequelize) => {
+export const post = (sequelize, Sequelize) => {
   return sequelize.define('post', {
     id: {
       type: Sequelize.UUID,
@@ -13,5 +13,3 @@ const post = (sequelize, Sequelize) => {
     updatedAt: 'date_updated',
   });
 };
-
-export { post };

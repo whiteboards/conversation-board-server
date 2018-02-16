@@ -3,20 +3,23 @@ import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
 import * as helmet from 'helmet';
+
 // Internal imports
 import * as  db from './db';
 import * as apiController from './controllers/api';
 
 // Create Express server
-const app = express();
+export const app = express();
 
 db.database
   .authenticate()
   .then(() => {
     console.log('Connection has been established successfully.');
+    db.database.close();
   })
   .catch((err) => {
     console.error('Unable to connect to the database:', err);
+    db.database.close();
   });
 
 // Express configuration
@@ -32,5 +35,3 @@ app.use(helmet());
 app.get('/api/user/:id', apiController.getUser);
 app.get('/api/board/:id', apiController.getBoard);
 app.get('/api/board/:id/posts', apiController.getPosts);
-
-export { app };
