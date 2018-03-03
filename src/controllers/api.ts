@@ -3,8 +3,7 @@ import * as uuid from 'uuid';
 import * as moment from 'moment';
 
 import { IBoard, IUser, IPost, ISearchResults } from '../lib/shared';
-import { Board } from '../models/board';
-import { IBoardInstance } from '../models/DatabaseInterfaces';
+import { Board, IBoardInstance } from '../models/board';
 
 export const getUser = (req: Request, res: Response) => {
   const user: IUser = {
@@ -43,6 +42,11 @@ export const createBoard = async (req: Request, res: Response) => {
   } catch (err) {
     console.error(err);
     return res.status(500).send('Failed to create board.');
+    // TOOD: Provide better error responses?:
+    // {
+    //   'message': 'Something went wrong',
+    //   'details': 'It was really bad.',
+    // }
   }
 };
 
@@ -51,7 +55,8 @@ const getBoardFromDataValues = (dbResponse: IBoardInstance): IBoard => ({
   name: dbResponse.dataValues.name,
   date_created: dbResponse.dataValues.date_created,
   date_updated: dbResponse.dataValues.date_updated,
-})
+});
+
 // export const updateBoard = async (req: Request, res: Response) => {
 //   try {
 //     const newBoard = await Board.find({});
