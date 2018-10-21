@@ -23,8 +23,10 @@
     "url": "https://github.com/whiteboards/conversation-board-server/issues'"
   },
   "scripts": {
-    "start": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\" \"tsc -w\" \"nodemon --inspect dist/server.js\"",
+    "start": "npm run build && npm run dev",
     "build": "tsc",
+    "build:watch": "tsc -w",
+    "dev": "nodemon --inspect dist/server.js",
     "lint": "tslint src/**/*.ts",
     "test": "jest --watch",
     "travis": "npm run lint && jest"

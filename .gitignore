@@ -60,4 +60,4 @@ typings/
 # Build output
 dist/
 
-config.js
+config.json
