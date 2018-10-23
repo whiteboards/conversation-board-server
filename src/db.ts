@@ -1,20 +1,18 @@
 import * as Sequelize from 'sequelize';
 import * as pg from 'pg';
 import * as fs from 'fs';
-import * as Board from './models/board';
-import * as Post from './models/post';
-import * as User from './models/user';
 
 pg.defaults.ssl = true;
 let config = {
-  DATABASE_URL: undefined,
+  DATABASE_URI: undefined,
 };
 
-if (fs.existsSync('../config.js')) {
+if (fs.existsSync('./config.json')) {
+  // The difference between the behavior of `existsSync` and `require` is weird, but works for now.
   config = require('../config');
 }
 
-const database = new Sequelize(process.env.DATABASE_URL || config.DATABASE_URL, {
+const database = new Sequelize(process.env.DATABASE_URI || config.DATABASE_URI, {
   pool: {
     max: 20,
     min: 0,
@@ -25,6 +23,8 @@ const database = new Sequelize(process.env.DATABASE_URL || config.DATABASE_URL, 
 
 // Get config from disk
 
-database.sync(/*{ force: true }*/);
+database.sync(
+  // { force: true },
+);
 
-export { Sequelize, database, Board, Post, User };
+export { database };

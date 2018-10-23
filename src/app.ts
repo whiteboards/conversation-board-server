@@ -18,7 +18,7 @@ db.database
     db.database.close();
   })
   .catch((err) => {
-    console.error('Unable to connect to the database:', err);
+    console.log('Unable to connect to database.', err);
     db.database.close();
   });
 
@@ -34,4 +34,5 @@ app.use(helmet());
 // TODO: Split these into separate files
 app.get('/api/user/:id', apiController.getUser);
 app.get('/api/board/:id', apiController.getBoard);
+app.post('/api/board', apiController.createBoard);
 app.get('/api/board/:id/posts', apiController.getPosts);
