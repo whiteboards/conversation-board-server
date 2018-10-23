@@ -11,7 +11,16 @@ import * as apiController from './controllers/api';
 // Create Express server
 export const app = express();
 
-db.database.authenticate();
+db.database
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+    db.database.close();
+  })
+  .catch((err) => {
+    console.log('Unable to connect to database.', err);
+    db.database.close();
+  });
 
 // Express configuration
 app.set('port', process.env.PORT || 3000);
